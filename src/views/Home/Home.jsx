@@ -15,7 +15,7 @@ const Home = () => {
   }, [user])
 
   if (loading) return <h1>Loading...</h1>
-  return <Profile user={user} />
+  return <Profile />
 }
 
 export default Home
