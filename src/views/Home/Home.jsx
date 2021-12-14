@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import Profile from '../../components/Profile/Profile'
 import { UserProvider, useUser } from '../../context/UserContext'
 
-const Home = ({ user }) => {
+const Home = () => {
+  const { user } = useUser()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -14,11 +15,7 @@ const Home = ({ user }) => {
   }, [user])
 
   if (loading) return <h1>Loading...</h1>
-  return (
-    <UserProvider>
-      <Profile />
-    </UserProvider>
-  )
+  return <Profile user={user} />
 }
 
 export default Home
